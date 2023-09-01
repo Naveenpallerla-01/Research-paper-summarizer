@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Research Paper Summarizer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        
+        h1 {
+            background-color: #007bff;
+            color: #fff;
+            padding: 20px;
+        }
+        
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        label {
+            font-weight: bold;
+        }
+        
+        input[type="file"], input[type="number"], input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+        
+        h2 {
+            margin-top: 20px;
+        }
+        
+        p {
+            text-align: left;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Research Paper Summarizer</h1>
+    <form method="POST" action="/" enctype="multipart/form-data">
+        <label for="pdf">Upload your research paper (PDF):</label><br>
+        <input type="file" name="pdf" accept=".pdf"><br>
+        <label for="sentences">Enter number of sentences for summarization:</label><br>
+        <input type="number" name="sentences" min="1"><br>
+        <input type="submit" value="Summarize">
+    </form>
+    {% if summary %}
+    <h2>Generated Summary:</h2>
+    <p>{{ summary }}</p>
+    {% endif %}
+</body>
+</html>
+
